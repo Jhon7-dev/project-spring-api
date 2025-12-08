@@ -22,13 +22,17 @@ public class MyapiApplication implements CommandLineRunner{
 		SpringApplication.run(MyapiApplication.class, args);
 	}
 
+	//Instanciação automática da nossa base de dados
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		Usuario u1 = new Usuario(null, "João Victor", "joao", "123");
+		// o ID, o próprio jpa cria. por isso é nulo
 		Usuario u2 = new Usuario(null, "gustavo", "gtv", "323");
+		Usuario u3 = new Usuario(null, "ozzy", "ozzy", "1706");
+		Usuario u4 = new Usuario(null, "bruna fernanda", "bruna", "1707");
 		
-		usuarioRepository.saveAll(Arrays.asList(u1,u2));
+		usuarioRepository.saveAll(Arrays.asList(u1,u2,u3,u4));
 	}
 
 }
