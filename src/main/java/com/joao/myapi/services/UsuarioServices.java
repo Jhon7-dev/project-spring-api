@@ -3,7 +3,9 @@ package com.joao.myapi.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.joao.myapi.domain.Usuario;
@@ -38,6 +40,13 @@ public class UsuarioServices {
 	public Usuario create(Usuario obj) {
 		obj.setId(null);
 		return repository.save(obj);
+	}
+
+	public ResponseEntity<Object> delete(Integer id) {
+		findById(id);
+		repository.deleteById(id);
+		return ResponseEntity.noContent().build();
+		
 	}
 	
 }
